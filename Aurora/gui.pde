@@ -31,19 +31,19 @@ public void resetButtonClicked(GButton source, GEvent event) { //_CODE_:resetBut
 } //_CODE_:resetButton:924028:
 
 public void submitButtonClicked(GButton source, GEvent event) { //_CODE_:submitButton:781352:
-  ticketList.setVisible(true);
-  for (Seat s : reservedSeats){
+  ticketList.setVisible(true); //Set the ticket drop list to visible.
+  for (Seat s : reservedSeats){ //On click, generate new tickets for each seat that has been reserved.
     Ticket k = new Ticket(s, sampleCode);
     allTickets.add(k);
   }
-  for (int i=0; i < allTickets.size(); i++){
+  for (int i=0; i < allTickets.size(); i++){ //Add options to the drop list for each ticket. 
     ticketList.addItem("Ticket " + String.valueOf(i+1));  
   }
 } //_CODE_:submitButton:781352:
 
 public void numAdultsSlider(GCustomSlider source, GEvent event) { //_CODE_:numAdults:422791:
-  numA = numAdults.getValueI();
-  numTickets = numA;
+  numA = numAdults.getValueI(); 
+  numTickets = numA; //Must be set in order to handle the case of someone booking tickets solely for adults.
 } //_CODE_:numAdults:422791:
 
 public void numChildrenSlider(GCustomSlider source, GEvent event) { //_CODE_:numChildren:288602:

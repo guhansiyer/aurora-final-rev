@@ -39,5 +39,73 @@ class Ticket {
     text(this.flightCode, 175, 325);
     text(this.seat.identifier, 305, 325);
     text(this.seat.plane.title, 385, 325);
+    println("this isnt vscode lagging")
+    println(calculatePrice());
+  }
+
+  private int calculatePrice() {
+    int basePrice = 0;
+    switch (this.seat.plane.title) { //Switch statement based on the selected seat class from the drop list menu.
+      case "First Class":
+        basePrice = 3500;
+        for (int i=0; i<=fcCols; i++) {
+          for (int j=0; j<=fcRows; j++) {
+            try{
+              if (fcSeats[i][j] == this.seat){
+                if (j == 0 || j == fcRows) {
+                  basePrice += int(random(50, 100));
+                }
+                else{
+                  basePrice += int(random(25, 50));
+                }
+              }
+            }
+            catch (ArrayIndexOutOfBoundsException e){}
+          }
+        }
+
+      case "Business Class":
+        basePrice = 2000;
+        for (int i=0; i<=bcCols; i++) {
+          for (int j=0; j<=bcRows; j++) {
+            try{
+              if (bcSeats[i][j] == this.seat) {
+                if (j == 0 || j == bcRows) {
+                  basePrice += int(random(50, 100));
+                }
+                if (j == 1 || j == bcRows-1 ) {
+                  basePrice += int(random(50, 75));
+                }
+                else{
+                  basePrice += int(random(25, 50));
+                }
+              }
+            }
+            catch (ArrayIndexOutOfBoundsException e){}
+          }
+        }
+
+      case "Economy Class":
+        basePrice = 700; 
+        for (int i=0; i<=ecCols; i++) {
+          for (int j=0; j<=ecRows; j++) {
+            try {
+              if (ecSeats[i][j] == this.seat){
+                if (j == 0 || j == ecRows){
+                  basePrice += int(random(50, 100));
+                }
+                if (j == 1 || j == 2 || j == ecRows-1 || j == ecRows-2){
+                  basePrice += int(random(50, 75));
+                }
+                else{
+                  basePrice += int(random(25, 50));
+                }
+              }
+            }
+            catch (ArrayIndexOutOfBoundsException e){}
+          }
+        }
+      }
+    return basePrice;
   }
 }
