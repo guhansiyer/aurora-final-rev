@@ -21,7 +21,7 @@ class Ticket {
     background(200);
     stroke(ticketColour);
     fill(ticketColour);
-    rect(5, 200, 590, 300);
+    rect(5, 200, 590, 200);
     textSize(35);
     textFont(tthdb);
     fill(255);
