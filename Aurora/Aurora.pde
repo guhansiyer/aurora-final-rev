@@ -68,6 +68,7 @@ void setup() {
 
   submitButton.setVisible(false);
   ticketList.setVisible(false);
+  ticketPrice.setVisible(false);
 
   //Plane initialization
   fc = new firstClassPlane(100, height/3, width-400, height/4, "First Class");
@@ -198,6 +199,8 @@ void draw() {
         clear();
         background(200);
         t.drawTicket();
+        println(t.price);
+        ticketPrice.setText("$" + String.valueOf(t.price));
       }
     }
   }

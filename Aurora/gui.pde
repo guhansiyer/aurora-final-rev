@@ -31,7 +31,8 @@ public void resetButtonClicked(GButton source, GEvent event) { //_CODE_:resetBut
 } //_CODE_:resetButton:924028:
 
 public void submitButtonClicked(GButton source, GEvent event) { //_CODE_:submitButton:781352:
-  ticketList.setVisible(true); //Set the ticket drop list to visible.
+  ticketList.setVisible(true);  //Set the ticket drop list to visible.
+  ticketPrice.setVisible(true);
   for (Seat s : reservedSeats){ //On click, generate new tickets for each seat that has been reserved.
     Ticket k = new Ticket(s, sampleCode);
     allTickets.add(k);
@@ -58,7 +59,11 @@ public void seatClassOptions(GDropList source, GEvent event) { //_CODE_:seatClas
 } //_CODE_:seatClassList:657673:
 
 public void ticketListOptions(GDropList source, GEvent event) { //_CODE_:ticketList:473915:
+  
 } //_CODE_:ticketList:473915:
+
+public void ticketPriceField(GTextField source, GEvent event) { //_CODE_:ticketPrice:524135:
+} //_CODE_:ticketPrice:524135:
 
 
 
@@ -129,6 +134,11 @@ public void createGUI(){
   label3 = new GLabel(GUI, 0, 163, 80, 20);
   label3.setText("Selected Seat");
   label3.setOpaque(false);
+  ticketPrice = new GTextField(GUI, 130, 158, 120, 28, G4P.SCROLLBARS_NONE);
+  ticketPrice.setPromptText("Ticket Price.");
+  ticketPrice.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  ticketPrice.setOpaque(true);
+  ticketPrice.addEventHandler(this, "ticketPriceField");
   GUI.loop();
 }
 
@@ -148,3 +158,4 @@ GTextField showSelectedSeat;
 GDropList seatClassList; 
 GDropList ticketList; 
 GLabel label3; 
+GTextField ticketPrice; 

@@ -15,7 +15,7 @@ public void assignFCSeatIdentifiers(int i, int j) {
   //This is done to prevent undrawn seats from receiving an identifier.
   fcSeats[i][j].identifier = String.valueOf(numIdentifier) + stringIdentifier; 
   numIdentifier = null;
-  stringIdentifier = null;
+  stringIdentifier = "";
 }
 
 public void assignBCSeatIdentifiers(int i, int j) {
@@ -29,7 +29,7 @@ public void assignBCSeatIdentifiers(int i, int j) {
   }
   bcSeats[i][j].identifier = String.valueOf(numIdentifier) + stringIdentifier;
   numIdentifier = null;
-  stringIdentifier = null;
+  stringIdentifier = "";
 }
 
 public void assignECSeatIdentifiers(int i, int j) {
@@ -42,7 +42,7 @@ public void assignECSeatIdentifiers(int i, int j) {
     }
     ecSeats[i][j].identifier = String.valueOf(numIdentifier) + stringIdentifier;
     numIdentifier = null;
-    stringIdentifier = null;
+    stringIdentifier = "";
   }
 }
 
@@ -166,6 +166,7 @@ public void reset() { //Function called on every click of the reset button.
   showSelectedSeat.setText("");
   submitButton.setVisible(false);
   ticketList.setVisible(false);
+  ticketPrice.setVisible(false);
   numTickets = 0;
   numA = 0;
   numC = 0;
